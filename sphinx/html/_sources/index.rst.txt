@@ -3,17 +3,22 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to Servidor Desafios's documentation!
-=============================================
+Bem-Vindo a Documentação do Servidor de Desafios
+================================================
 
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
 
+   Professor
+   Aluno
+   Desenvolvedor
+   inicial
 
 
-Indices and tables
-==================
+
+Funções e Módulos
+=================
 
 * :ref:`genindex`
 * :ref:`modindex`

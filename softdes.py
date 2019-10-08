@@ -13,6 +13,10 @@ from flask_httpauth import HTTPBasicAuth
 DBNAME = './quiz.db'
 
 def lambda_handler(event, context):
+    '''
+    Handler usado para testar se função se mostra valida.
+'''
+    
     try:
         import numbers
         def not_equals(first, second):
@@ -36,9 +40,15 @@ def lambda_handler(event, context):
         return "Função inválida."
 
 def converte_data(orig):
+    '''
+    Formata a string data e hora.
+'''
     return orig[8:10]+'/'+orig[5:7]+'/'+orig[0:4]+' '+orig[11:13]+':'+orig[14:16]+':'+orig[17:]
 
 def get_quizes(user):
+    '''
+    Filtra todos os quiz por usuário.
+'''
     conn = sqlite3.connect(DBNAME)
     cursor = conn.cursor()
     if user == 'admin' or user == 'fabioja':
@@ -52,6 +62,9 @@ def get_quizes(user):
     return info
 
 def get_user_quiz(userid, quizid):
+    '''
+    Filtra respostas e resultados dependendo de algum quiz ou usuário passado como parametro.
+'''
     conn = sqlite3.connect(DBNAME)
     cursor = conn.cursor()
     cursor.execute("SELECT sent,answer,result from USERQUIZ where userid = '{0}' and quizid = {1} order by sent desc" \
@@ -61,6 +74,9 @@ def get_user_quiz(userid, quizid):
     return info
 
 def set_user_quiz(userid, quizid, sent, answer, result):
+    '''
+    Função criada para adicionar ao banco de dados sql um novo quiz feito pelo usuário com todas as infos necessarias.
+    '''
     conn = sqlite3.connect(DBNAME)
     cursor = conn.cursor()
     #print("insert into USERQUIZ(userid,quizid,sent,answer,result) values ('{0}',{1},'{2}','{3}','{4}');"
@@ -72,7 +88,10 @@ def set_user_quiz(userid, quizid, sent, answer, result):
     conn.commit()
     conn.close()
 
-def get_quiz(id_func, user):
+def get_quiz(id_func, user): 
+    '''
+    Função usada para filtrar informações dos quiz de algum usuário desejado.
+    '''
     conn = sqlite3.connect(DBNAME)
     cursor = conn.cursor()
     if user == 'admin' or user == 'fabioja':
@@ -84,6 +103,9 @@ def get_quiz(id_func, user):
     return info
 
 def set_info(pwd, user):
+    '''
+    Função criada para atualizar a senha do usuário no sql.
+    '''
     conn = sqlite3.connect(DBNAME)
     cursor = conn.cursor()
     cursor.execute("UPDATE USER set pass = ? where user = ?", (pwd, user))
@@ -91,6 +113,9 @@ def set_info(pwd, user):
     conn.close()
 
 def get_info(user):
+    '''
+    Função usada para retornar informações sobre o usuário presente na base de dados.
+'''
     conn = sqlite3.connect(DBNAME)
     cursor = conn.cursor()
     cursor.execute("SELECT pass, type from USER where user = '{0}'".format(user))
@@ -109,6 +134,9 @@ APP.secret_key = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?TX'
 @APP.route('/', methods=['GET', 'POST'])
 @AUTH.login_required
 def main():
+    '''
+    O main trata dos microsserviços para comunicaçao com o servidor.
+'''
     msg = ''
     p_o = 1
     challenges = get_quizes(AUTH.username())
@@ -169,6 +197,9 @@ def main():
 @APP.route('/pass', methods=['GET', 'POST'])
 @AUTH.login_required
 def change():
+    '''
+    Função criada para realizar a troca de senhas para usuarios.
+'''
     if request.method == 'POST':
         velha = request.form['old']
         nova = request.form['new']
@@ -195,14 +226,23 @@ def change():
 
 @APP.route('/logout')
 def logout():
+    '''
+    Função para logout do usuario.
+'''
     return render_template('index.html', p=2, msg="Logout com sucesso"), 401
 
 @AUTH.get_password
 def get_password(username):
+    '''
+    Função usada para visualizar a senha do usuario.
+''' 
     return get_info(username)
 
 @AUTH.hash_password
 def hash_pw(password):
+    '''
+    Função que usa a biblioteca hashlib para criptografar as senhas.
+'''
     return hashlib.md5(password.encode()).hexdigest()
 
 if __name__ == '__main__':

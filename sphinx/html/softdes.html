@@ -41,67 +41,80 @@
 <dl class="function">
 <dt id="softdes.change">
 <code class="descclassname">softdes.</code><code class="descname">change</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#softdes.change" title="Link permanente para esta definição">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Função criada para realizar a troca de senhas para usuarios.</p>
+</dd></dl>
 
 <dl class="function">
 <dt id="softdes.converte_data">
 <code class="descclassname">softdes.</code><code class="descname">converte_data</code><span class="sig-paren">(</span><em>orig</em><span class="sig-paren">)</span><a class="headerlink" href="#softdes.converte_data" title="Link permanente para esta definição">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Formata a string data e hora.</p>
+</dd></dl>
 
 <dl class="function">
 <dt id="softdes.get_info">
 <code class="descclassname">softdes.</code><code class="descname">get_info</code><span class="sig-paren">(</span><em>user</em><span class="sig-paren">)</span><a class="headerlink" href="#softdes.get_info" title="Link permanente para esta definição">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Função usada para retornar informações sobre o usuário presente na base de dados.</p>
+</dd></dl>
 
 <dl class="function">
 <dt id="softdes.get_password">
 <code class="descclassname">softdes.</code><code class="descname">get_password</code><span class="sig-paren">(</span><em>username</em><span class="sig-paren">)</span><a class="headerlink" href="#softdes.get_password" title="Link permanente para esta definição">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Função usada para visualizar a senha do usuario.</p>
+</dd></dl>
 
 <dl class="function">
 <dt id="softdes.get_quiz">
 <code class="descclassname">softdes.</code><code class="descname">get_quiz</code><span class="sig-paren">(</span><em>id_func</em>, <em>user</em><span class="sig-paren">)</span><a class="headerlink" href="#softdes.get_quiz" title="Link permanente para esta definição">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Função usada para filtrar informações dos quiz de algum usuário desejado.</p>
+</dd></dl>
 
 <dl class="function">
 <dt id="softdes.get_quizes">
 <code class="descclassname">softdes.</code><code class="descname">get_quizes</code><span class="sig-paren">(</span><em>user</em><span class="sig-paren">)</span><a class="headerlink" href="#softdes.get_quizes" title="Link permanente para esta definição">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Filtra todos os quiz por usuário.</p>
+</dd></dl>
 
 <dl class="function">
 <dt id="softdes.get_user_quiz">
 <code class="descclassname">softdes.</code><code class="descname">get_user_quiz</code><span class="sig-paren">(</span><em>userid</em>, <em>quizid</em><span class="sig-paren">)</span><a class="headerlink" href="#softdes.get_user_quiz" title="Link permanente para esta definição">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Filtra respostas e resultados dependendo de algum quiz ou usuário passado como parametro.</p>
+</dd></dl>
 
 <dl class="function">
 <dt id="softdes.hash_pw">
 <code class="descclassname">softdes.</code><code class="descname">hash_pw</code><span class="sig-paren">(</span><em>password</em><span class="sig-paren">)</span><a class="headerlink" href="#softdes.hash_pw" title="Link permanente para esta definição">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Função que usa a biblioteca hashlib para criptografar as senhas.</p>
+</dd></dl>
 
 <dl class="function">
 <dt id="softdes.lambda_handler">
 <code class="descclassname">softdes.</code><code class="descname">lambda_handler</code><span class="sig-paren">(</span><em>event</em>, <em>context</em><span class="sig-paren">)</span><a class="headerlink" href="#softdes.lambda_handler" title="Link permanente para esta definição">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Handler usado para testar se função se mostra valida.</p>
+</dd></dl>
 
 <dl class="function">
 <dt id="softdes.logout">
 <code class="descclassname">softdes.</code><code class="descname">logout</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#softdes.logout" title="Link permanente para esta definição">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Função para logout do usuario.</p>
+</dd></dl>
 
 <dl class="function">
 <dt id="softdes.main">
 <code class="descclassname">softdes.</code><code class="descname">main</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#softdes.main" title="Link permanente para esta definição">¶</a></dt>
-<dd></dd></dl>
+<dd><p>O main trata dos microsserviços para comunicaçao com o servidor.</p>
+</dd></dl>
 
 <dl class="function">
 <dt id="softdes.set_info">
 <code class="descclassname">softdes.</code><code class="descname">set_info</code><span class="sig-paren">(</span><em>pwd</em>, <em>user</em><span class="sig-paren">)</span><a class="headerlink" href="#softdes.set_info" title="Link permanente para esta definição">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Função criada para atualizar a senha do usuário no sql.</p>
+</dd></dl>
 
 <dl class="function">
 <dt id="softdes.set_user_quiz">
 <code class="descclassname">softdes.</code><code class="descname">set_user_quiz</code><span class="sig-paren">(</span><em>userid</em>, <em>quizid</em>, <em>sent</em>, <em>answer</em>, <em>result</em><span class="sig-paren">)</span><a class="headerlink" href="#softdes.set_user_quiz" title="Link permanente para esta definição">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Função criada para adicionar ao banco de dados sql um novo quiz feito pelo usuário com todas as infos necessarias.</p>
+</dd></dl>
 
 </div>
 
